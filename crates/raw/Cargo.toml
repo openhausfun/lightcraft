@@ -1,0 +1,26 @@
+[package]
+name = "lightcraft-raw"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "LightCraft RAW decoding, demosaicing and DNG colour model (L1)"
+
+[lints]
+workspace = true
+
+[dependencies]
+lightcraft-tiff = { workspace = true }
+lightcraft-meta = { workspace = true }
+lightcraft-raster = { workspace = true }
+lightcraft-color = { workspace = true }
+lightcraft-geom = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+rayon = { workspace = true }
+miniz_oxide = { workspace = true }
+zune-jpeg = { workspace = true }
+zune-core = { workspace = true }
+
+[dev-dependencies]
+jpeg-encoder = { workspace = true }
+proptest = { workspace = true }

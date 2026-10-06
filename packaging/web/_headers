@@ -1,0 +1,9 @@
+# Netlify / Cloudflare Pages header rules (see HOSTING.md). Other hosts: set the same headers.
+# The file names don't change between versions: revalidate them (no `immutable`), or an upgrade
+# could leave browsers with an old module, or old glue next to a new module.
+/*
+  X-Content-Type-Options: nosniff
+  Cache-Control: no-cache
+
+/*.wasm
+  Content-Type: application/wasm

@@ -1,0 +1,22 @@
+LightCraft
+Copyright (c) 2026 ArtCraft Team and the LightCraft contributors.
+Licensed under the MIT License or the Apache License, Version 2.0, at your option
+(LICENSE-MIT, LICENSE-APACHE).
+
+The ArtCraft name, wordmark and logos in docs/brand/ are trademarks of the ArtCraft Team. They are
+not open source and are not covered by the license above; their terms are in
+docs/brand/LICENSE-brand.txt.
+
+Third-party material
+
+This product bundles third-party material under its own licenses, listed below. The per-file
+list (author, source, license) is in assets/ATTRIBUTION.md.
+
+Inter (assets/fonts/Inter-*.ttf) — SIL Open Font License 1.1. See assets/fonts/OFL-Inter.txt.
+Showcase photographs by Ansel Adams, Dorothea Lange and NASA (docs/images/) — public domain. See assets/ATTRIBUTION.md.
+
+Builds made with craft-fonts (the optional CRAFT_FONTS_DIR build input; all official releases)
+also embed the fonts listed in https://github.com/storytold/craft-fonts/blob/main/ATTRIBUTION.md
+(the Japanese fonts BIZ UDPGothic, BIZ UDMincho and Shippori Mincho; the web build embeds only BIZ
+UDPGothic Regular), under the SIL Open Font License 1.1. Release packages include each font's
+licence as OFL-<family>.txt.

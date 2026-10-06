@@ -1,0 +1,16 @@
+[package]
+name = "lightcraft-mcp"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "LightCraft MCP server (L5): JSON-RPC 2.0 over stdio, driving a running app or a headless session"
+
+[lints]
+workspace = true
+
+[dependencies]
+lightcraft-engine = { workspace = true }
+lightcraft-codecs = { workspace = true }
+lightcraft-raster = { workspace = true }
+serde_json = { workspace = true }
+log = { workspace = true }

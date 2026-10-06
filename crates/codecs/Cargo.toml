@@ -1,0 +1,41 @@
+[package]
+name = "lightcraft-codecs"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "LightCraft standard image codecs: sniffing, decode to linear light, ICC, encoders (L1)"
+
+[lints]
+workspace = true
+
+[dependencies]
+lightcraft-geom = { workspace = true }
+lightcraft-color = { workspace = true }
+lightcraft-raster = { workspace = true }
+serde = { workspace = true }
+bytemuck = { workspace = true }
+thiserror = { workspace = true }
+rayon = { workspace = true, optional = true }
+image = { workspace = true, features = ["gif", "bmp"] }
+zune-jpeg = { workspace = true }
+zune-core = { workspace = true }
+jpeg-decoder = { workspace = true }
+jpeg-encoder = { workspace = true }
+png = { workspace = true }
+tiff = { workspace = true }
+image-webp = { workspace = true }
+moxcms = { workspace = true }
+jxl-oxide = { workspace = true, optional = true }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+ravif = { workspace = true, optional = true }
+
+[features]
+default = ["parallel", "jxl", "avif"]
+parallel = ["dep:rayon", "lightcraft-raster/parallel", "jpeg-decoder/rayon"]
+jxl = ["dep:jxl-oxide"]
+## AVIF encoding via ravif/rav1e (pure Rust, BSD). Native targets only; a no-op on wasm32.
+avif = ["dep:ravif"]
+
+[dev-dependencies]
+proptest = { workspace = true }

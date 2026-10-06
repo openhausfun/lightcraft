@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=LightCraft
+GenericName=Photo Library and Raw Developer
+Comment=Organise photos and develop raw files, non-destructively
+Exec=lightcraft %F
+Icon=ai.storyteller.lightcraft
+Terminal=false
+Categories=Graphics;2DGraphics;RasterGraphics;Photography;
+Keywords=photo;raw;camera;library;develop;
+StartupWMClass=ai.storyteller.lightcraft
+MimeType=image/jpeg;image/png;image/tiff;image/webp;image/x-adobe-dng;image/x-sony-arw;image/x-canon-cr2;image/x-canon-cr3;image/x-nikon-nef;image/x-fuji-raf;image/x-olympus-orf;image/x-panasonic-rw2;image/x-pentax-pef;

@@ -1,0 +1,66 @@
+# Public-domain showcase: run LightCraft with `--control 7980 corpus/images/pd` (see docs/showcase/README.md)
+{"method":"ui.resize","params":{"width":1600,"height":1000}}
+{"method":"engine.execute","params":{"command":"photo.setMeta","params":{"ids":[1],"title":"The Tetons and the Snake River","creator":"Ansel Adams (1942), U.S. National Archives","keywords":["mountains","river","black and white","national park"]}}}
+{"method":"engine.execute","params":{"command":"photo.setMeta","params":{"ids":[2],"title":"Migrant Mother","creator":"Dorothea Lange (1936), Library of Congress","keywords":["portrait","documentary"]}}}
+{"method":"engine.execute","params":{"command":"photo.setMeta","params":{"ids":[3],"title":"Earthrise","creator":"NASA / Bill Anders, Apollo 8 (1968)","keywords":["space","earth","moon"]}}}
+{"method":"engine.execute","params":{"command":"photo.setMeta","params":{"ids":[4],"title":"The Blue Marble","creator":"NASA, Apollo 17 (1972)","keywords":["space","earth"]}}}
+{"method":"engine.execute","params":{"command":"photo.rate","params":{"ids":[1,2,3,4],"rating":5}}}
+{"method":"engine.execute","params":{"command":"photo.flag","params":{"ids":[1,3],"flag":"pick"}}}
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[1]}}}
+{"method":"engine.execute","params":{"command":"develop.set","params":{"values":{"light.exposure":0.15,"light.contrast":28,"light.highlights":-45,"light.shadows":38,"light.whites":22,"light.blacks":-22,"effects.clarity":28,"effects.dehaze":18,"effects.texture":12,"vignette.amount":-18}}}}
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[2]}}}
+{"method":"engine.execute","params":{"command":"develop.set","params":{"values":{"light.contrast":18,"light.highlights":-35,"light.shadows":42,"light.blacks":-15,"effects.clarity":22,"effects.texture":18,"vignette.amount":-22,"grading.highlights.hue":42,"grading.highlights.sat":16,"grading.shadows.hue":28,"grading.shadows.sat":12}}}}
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[3]}}}
+{"method":"engine.execute","params":{"command":"develop.set","params":{"values":{"wb.temp":6800,"light.exposure":0.25,"light.contrast":12,"light.highlights":-30,"light.shadows":25,"light.blacks":-18,"effects.dehaze":22,"effects.clarity":16,"color.vibrance":22}}}}
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[4]}}}
+{"method":"engine.execute","params":{"command":"develop.set","params":{"values":{"light.contrast":16,"light.highlights":-38,"light.shadows":20,"light.blacks":-20,"effects.dehaze":15,"effects.clarity":12,"color.vibrance":30}}}}
+# hero
+{"method":"ui.set","params":{"leftPanel":false,"filmstrip":true,"beforeAfter":"off","openSections":["light","effects"],"openFlyouts":[],"right":"edit","presets":false}}
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[1]}}}
+{"method":"engine.execute","params":{"command":"view.detail"}}
+{"sleep":6}
+{"method":"ui.screenshot","params":{"path":"docs/images/hero-tetons.png"}}
+# before / after
+{"method":"ui.set","params":{"beforeAfter":"sideBySide","openSections":["light"]}}
+{"sleep":6}
+{"method":"ui.screenshot","params":{"path":"docs/images/ba-tetons.png"}}
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[2]}}}
+{"sleep":6}
+{"method":"ui.screenshot","params":{"path":"docs/images/ba-migrant-mother.png"}}
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[3]}}}
+{"method":"ui.set","params":{"openSections":["light","color"]}}
+{"sleep":6}
+{"method":"ui.screenshot","params":{"path":"docs/images/ba-earthrise.png"}}
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[4]}}}
+{"sleep":6}
+{"method":"ui.screenshot","params":{"path":"docs/images/ba-blue-marble.png"}}
+# colour grading
+{"method":"ui.set","params":{"beforeAfter":"off","openSections":["color"],"openFlyouts":["grading"]}}
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[2]}}}
+{"sleep":6}
+{"method":"ui.screenshot","params":{"path":"docs/images/grading-migrant-mother.png"}}
+# tone curve
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[1]}}}
+{"method":"engine.execute","params":{"command":"develop.curve","params":{"channel":"master","points":[[0,0.04],[0.25,0.2],[0.5,0.52],[0.78,0.84],[1,0.97]]}}}
+{"method":"ui.set","params":{"openSections":["light"],"openFlyouts":["curve"],"curveChannel":"master"}}
+{"sleep":6}
+{"method":"ui.screenshot","params":{"path":"docs/images/curve-tetons.png"}}
+# crop & straighten
+{"method":"engine.execute","params":{"command":"crop.aspect","params":{"aspect":"16x9"}}}
+{"method":"engine.execute","params":{"command":"crop.straighten","params":{"angle":2.5}}}
+{"method":"engine.execute","params":{"command":"panel.crop"}}
+{"sleep":6}
+{"method":"ui.screenshot","params":{"path":"docs/images/crop-tetons.png"}}
+{"method":"engine.execute","params":{"command":"crop.reset"}}
+{"method":"engine.execute","params":{"command":"panel.edit"}}
+# info + keywords
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[3]}}}
+{"method":"engine.execute","params":{"command":"panel.info"}}
+{"sleep":5}
+{"method":"ui.screenshot","params":{"path":"docs/images/info-earthrise.png"}}
+{"method":"engine.execute","params":{"command":"panel.edit"}}
+# grid
+{"method":"engine.execute","params":{"command":"view.squareGrid"}}
+{"method":"ui.set","params":{"leftPanel":true,"thumbSize":300}}
+{"sleep":5}
+{"method":"ui.screenshot","params":{"path":"docs/images/grid-pd.png"}}

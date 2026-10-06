@@ -1,0 +1,23 @@
+[package]
+name = "lightcraft-raster"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "LightCraft raster (L0)"
+
+[lints]
+workspace = true
+
+[dependencies]
+serde = { workspace = true }
+lightcraft-geom = { workspace = true }
+lightcraft-color = { workspace = true }
+rayon = { workspace = true, optional = true }
+
+[features]
+default = ["parallel"]
+parallel = ["dep:rayon"]
+
+[dev-dependencies]
+proptest = { workspace = true }
+libc = { workspace = true }

@@ -1,0 +1,15 @@
+[package]
+name = "xtask"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lints]
+workspace = true
+
+[dependencies]
+serde_json = { workspace = true }
+# precompressed web bundle (`cargo xtask web`); pure Rust
+flate2 = "1"
+brotli = { version = "8", default-features = false, features = ["std"] }

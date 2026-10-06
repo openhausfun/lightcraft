@@ -1,0 +1,8 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 0227748e171237a13833c9175fe02c7fe6ff332266798961a6a43ec37b81d1b4 # shrinks to actions = [(3, 0), (0, 0), (4, 0), (0, 0)]
+cc 0b0ab2531bd46fbe261b55ecffebea9d3e8949900ab7bc33fb27ca19f5cd7b8b # shrinks to actions = [(4, 443), (3, 474), (2, 27), (5, 858), (5, 466), (0, 901), (4, 907), (3, 839), (0, 630), (7, 578), (4, 13), (2, 361), (6, 136), (6, 12), (6, 223), (1, 394), (6, 78), (5, 837), (6, 765), (4, 207), (2, 185), (2, 583), (2, 56), (5, 430), (1, 702), (1, 547), (5, 552), (4, 762), (0, 443), (0, 851), (7, 240), (4, 438), (3, 599), (6, 70), (4, 694), (1, 327), (7, 859), (6, 814), (4, 336), (3, 438), (0, 131), (0, 831), (3, 18), (2, 963), (6, 10), (3, 114)]

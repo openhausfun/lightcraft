@@ -1,0 +1,13 @@
+LightCraft app icon (lightcraft.svg and every file derived from it in this directory:
+lightcraft-small.svg, lightcraft-1024.png, lightcraft-macos-512.png, lightcraft.icns,
+lightcraft.ico, hicolor/).
+
+Original artwork made for this project by the LightCraft project owner in ArtCraft (no
+third-party material). Licensed like the rest of LightCraft, under either of
+
+  * Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
+  * MIT license (https://opensource.org/licenses/MIT)
+
+at your option.
+
+Regenerate the derived files with packaging/icons.sh.

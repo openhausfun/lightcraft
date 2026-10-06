@@ -1,0 +1,137 @@
+[workspace]
+resolver = "3"
+members = ["crates/*", "apps/*", "xtask"]
+
+[workspace.package]
+version = "0.2.1"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+rust-version = "1.90"
+repository = "https://github.com/storytold/lightcraft"
+
+[workspace.dependencies]
+# internal
+lightcraft-geom = { path = "crates/geom" }
+lightcraft-sysmem = { path = "crates/sysmem" }
+lightcraft-color = { path = "crates/color" }
+lightcraft-raster = { path = "crates/raster" }
+lightcraft-tiff = { path = "crates/tiff" }
+lightcraft-raw = { path = "crates/raw" }
+lightcraft-codecs = { path = "crates/codecs" }
+lightcraft-meta = { path = "crates/meta" }
+lightcraft-develop = { path = "crates/develop" }
+lightcraft-scenes = { path = "crates/scenes" }
+lightcraft-pipeline = { path = "crates/pipeline" }
+lightcraft-gpu = { path = "crates/gpu" }
+lightcraft-catalog = { path = "crates/catalog" }
+lightcraft-preview = { path = "crates/preview" }
+lightcraft-merge = { path = "crates/merge" }
+lightcraft-engine = { path = "crates/engine" }
+lightcraft-ui-egui = { path = "crates/ui-egui" }
+lightcraft-mcp = { path = "crates/mcp" }
+
+# foundation
+thiserror = "2"
+serde = { version = "1", features = ["derive", "rc"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+log = "0.4"
+rayon = "1"
+proptest = "1"
+bytemuck = { version = "1", features = ["derive"] }
+crc32fast = "1"
+siphasher = "1"
+libc = "0.2" # dev-only: process CPU time in benches
+dhat = "0.3" # opt-in heap profiling (lightcraft-cli --features dhat-heap); never in default builds
+
+# formats
+quick-xml = "0.38"
+miniz_oxide = "0.8"
+
+# codecs
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "tiff", "webp"] }
+zune-jpeg = { version = "0.5", default-features = false, features = ["std", "x86", "neon"] }
+zune-core = { version = "0.5", default-features = false, features = ["std"] }
+jpeg-decoder = { version = "0.3", default-features = false }
+jpeg-encoder = { version = "0.7", default-features = false, features = ["std"] }
+ab_glyph = { version = "0.2", default-features = false, features = ["std"] }  # Apache-2.0, pure Rust glyph rasterizer (export watermarks)
+png = "0.18"
+tiff = "0.11"
+image-webp = "0.2"
+moxcms = { version = "0.9", default-features = false, features = ["lut"] }
+jxl-oxide = { version = "0.12", default-features = false }
+ravif = { version = "0.13", default-features = false, features = ["threading"] } # no "asm": it needs nasm (non-Rust)
+
+# gpu (crates/gpu; native backends only, no GL: everything stays pure Rust)
+wgpu = { version = "30", default-features = false, features = ["std", "parking_lot", "metal", "vulkan", "dx12", "wgsl"] }
+pollster = "1"
+
+# ui
+egui = "0.36"
+egui_extras = { version = "0.36", default-features = false }
+eframe = { version = "0.36", default-features = false }
+egui_kittest = "0.36"
+rfd = "0.17"
+muda = { version = "0.21", default-features = false } # native menu bar (macOS: objc2/AppKit, pure Rust; no GTK)
+web-time = "1"
+
+# web (apps/lightcraft-web)
+wasm-bindgen = "0.2.129"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+web-sys = "0.3"
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+
+[workspace.lints.clippy]
+dbg_macro = "warn"
+todo = "warn"
+too_many_arguments = "allow"
+needless_range_loop = "allow"
+type_complexity = "allow"
+excessive_precision = "allow"
+
+[profile.dev.package."*"]
+opt-level = 2
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+debug = "line-tables-only"
+
+[profile.dist]
+inherits = "release"
+lto = "thin"
+codegen-units = 1
+debug = false
+
+# `cargo xtask web`: the browser build. Size matters more than build time: fat LTO, one codegen
+# unit, no symbols, abort on panic (wasm32 can't unwind anyway), size-optimized code — except the
+# crates that do per-pixel work, which stay at opt-level 3 (opt-level "s"/"z" there costs ~50 %/
+# ~130 % render time; measured in docs/web.md → Bundle size).
+[profile.web]
+inherits = "release"
+debug = false
+lto = "fat"
+codegen-units = 1
+strip = true
+panic = "abort"
+opt-level = "s"
+
+[profile.web.package]
+lightcraft-pipeline = { opt-level = 3 }
+lightcraft-raster = { opt-level = 3 }
+lightcraft-color = { opt-level = 3 }
+lightcraft-develop = { opt-level = 3 }
+lightcraft-geom = { opt-level = 3 }
+lightcraft-raw = { opt-level = 3 }
+lightcraft-codecs = { opt-level = 3 }
+lightcraft-scenes = { opt-level = 3 }
+lightcraft-preview = { opt-level = 3 }
+zune-jpeg = { opt-level = 3 }
+zune-core = { opt-level = 3 }
+jpeg-decoder = { opt-level = 3 }
+jpeg-encoder = { opt-level = 3 }
+png = { opt-level = 3 }
+miniz_oxide = { opt-level = 3 }

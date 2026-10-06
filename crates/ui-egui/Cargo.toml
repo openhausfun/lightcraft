@@ -1,0 +1,30 @@
+[package]
+name = "lightcraft-ui-egui"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "LightCraft egui frontend (Lightroom-style UI); swappable — nothing below depends on it (L5)"
+
+[lints]
+workspace = true
+
+[dependencies]
+lightcraft-geom = { workspace = true }
+lightcraft-color = { workspace = true }
+lightcraft-raster = { workspace = true }
+lightcraft-develop = { workspace = true }
+lightcraft-pipeline = { workspace = true }
+lightcraft-catalog = { workspace = true }
+web-time = { workspace = true }
+lightcraft-engine = { workspace = true }
+lightcraft-preview = { workspace = true }
+egui = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+log = { workspace = true }
+
+[dev-dependencies]
+lightcraft-codecs = { workspace = true }
+
+[build-dependencies]
+serde_json = { workspace = true }

@@ -1,0 +1,21 @@
+[package]
+name = "lightcraft-catalog"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "LightCraft library: photos, albums, ratings/flags, search/filter/sort, op-log persistence (L3)"
+
+[lints]
+workspace = true
+
+[dependencies]
+lightcraft-develop = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+crc32fast = { workspace = true }
+log = { workspace = true }
+web-time = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }

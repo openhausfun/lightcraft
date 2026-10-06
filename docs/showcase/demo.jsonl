@@ -1,0 +1,35 @@
+# Demo-library showcase: run LightCraft with `--memory --control 7980` (no files → procedural demo library)
+{"method":"ui.resize","params":{"width":1600,"height":1000}}
+{"method":"engine.execute","params":{"command":"view.photoGrid"}}
+{"method":"ui.set","params":{"leftPanel":true,"right":"edit","thumbSize":230,"openSections":["light","color"],"presets":false}}
+{"sleep":7}
+{"method":"ui.screenshot","params":{"path":"docs/images/grid-demo.png"}}
+# masking: radial gradient over the sun on "Lake at first light"
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[1]}}}
+{"method":"engine.execute","params":{"command":"view.detail"}}
+{"method":"ui.set","params":{"leftPanel":false}}
+{"method":"engine.execute","params":{"command":"develop.set","params":{"values":{"light.highlights":-55,"light.shadows":35,"color.vibrance":25,"effects.clarity":15}}}}
+{"method":"engine.execute","params":{"command":"panel.masking"}}
+{"method":"engine.execute","params":{"command":"mask.add","params":{"kind":"linear","start":[0.5,0.0],"end":[0.5,0.45],"name":"Sky"}}}
+{"method":"engine.execute","params":{"command":"mask.adjust","params":{"values":{"exposure":-0.6,"temp":25,"saturation":20,"dehaze":20}}}}
+{"method":"engine.execute","params":{"command":"mask.add","params":{"kind":"radial","center":[0.62,0.4],"rx":0.2,"ry":0.14,"feather":70,"name":"Sun glow"}}}
+{"method":"engine.execute","params":{"command":"mask.adjust","params":{"values":{"exposure":0.5,"temp":40,"saturation":15}}}}
+{"sleep":7}
+{"method":"ui.screenshot","params":{"path":"docs/images/masking.png"}}
+# presets column + colour mixer
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[6]}}}
+{"method":"engine.execute","params":{"command":"panel.edit"}}
+{"method":"engine.execute","params":{"command":"preset.apply","params":{"id":"lc.golden-hour","amount":100}}}
+{"method":"engine.execute","params":{"command":"panel.presets"}}
+{"method":"ui.set","params":{"openSections":["color"],"openFlyouts":["mixer"],"mixerMode":"purple"}}
+{"sleep":7}
+{"method":"ui.screenshot","params":{"path":"docs/images/presets-mixer.png"}}
+{"method":"engine.execute","params":{"command":"panel.presets"}}
+# black & white + grain on the dunes
+{"method":"engine.execute","params":{"command":"library.select","params":{"ids":[2]}}}
+{"method":"engine.execute","params":{"command":"preset.apply","params":{"id":"lc.bw-high-contrast","amount":100}}}
+{"method":"engine.execute","params":{"command":"develop.set","params":{"values":{"grain.amount":30,"vignette.amount":-25}}}}
+{"method":"ui.set","params":{"beforeAfter":"split","openSections":["effects"],"openFlyouts":[]}}
+{"sleep":7}
+{"method":"ui.screenshot","params":{"path":"docs/images/bw-split.png"}}
+{"method":"ui.set","params":{"beforeAfter":"off"}}

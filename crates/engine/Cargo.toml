@@ -1,0 +1,35 @@
+[package]
+name = "lightcraft-engine"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "LightCraft engine: session, command registry, history, render jobs, view-models (L4)"
+
+[lints]
+workspace = true
+
+[dependencies]
+lightcraft-geom = { workspace = true }
+lightcraft-color = { workspace = true }
+lightcraft-raster = { workspace = true }
+lightcraft-develop = { workspace = true }
+lightcraft-scenes = { workspace = true }
+lightcraft-pipeline = { workspace = true }
+lightcraft-gpu = { workspace = true }
+lightcraft-catalog = { workspace = true }
+web-time = { workspace = true }
+lightcraft-preview = { workspace = true }
+lightcraft-codecs = { workspace = true }
+lightcraft-raw = { workspace = true }
+lightcraft-meta = { workspace = true }
+miniz_oxide = { workspace = true }
+lightcraft-merge = { workspace = true }
+rayon = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+log = { workspace = true }
+ab_glyph = { workspace = true }
+
+[dev-dependencies]
+libc = { workspace = true }

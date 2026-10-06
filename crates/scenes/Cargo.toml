@@ -1,0 +1,18 @@
+[package]
+name = "lightcraft-scenes"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Procedurally generated photographic demo scenes (HDR, linear Rec.2020) for LightCraft demos and tests (L1)"
+
+[lints]
+workspace = true
+
+[dependencies]
+lightcraft-color = { workspace = true }
+lightcraft-raster = { workspace = true }
+serde = { workspace = true }
+rayon = { workspace = true }
+
+[dev-dependencies]
+image = { workspace = true }

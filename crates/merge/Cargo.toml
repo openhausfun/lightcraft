@@ -1,0 +1,21 @@
+[package]
+name = "lightcraft-merge"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "LightCraft Photo Merge: HDR merge (align, deghost) and panorama stitching (L3)"
+
+[lints]
+workspace = true
+
+[dependencies]
+lightcraft-geom = { workspace = true }
+lightcraft-color = { workspace = true }
+lightcraft-raster = { workspace = true }
+lightcraft-raw = { workspace = true }
+lightcraft-codecs = { workspace = true }
+lightcraft-meta = { workspace = true }
+lightcraft-scenes = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+rayon = { workspace = true }

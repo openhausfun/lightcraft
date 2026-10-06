@@ -1,0 +1,209 @@
+//! Tag numbers (TIFF 6.0, TIFF/EP, Exif 2.32, GPS, DNG 1.7). Public specification constants.
+
+// --- TIFF baseline / extensions
+pub const NEW_SUBFILE_TYPE: u16 = 254;
+pub const SUBFILE_TYPE: u16 = 255;
+pub const IMAGE_WIDTH: u16 = 256;
+pub const IMAGE_LENGTH: u16 = 257;
+pub const BITS_PER_SAMPLE: u16 = 258;
+pub const COMPRESSION: u16 = 259;
+pub const PHOTOMETRIC: u16 = 262;
+pub const FILL_ORDER: u16 = 266;
+pub const DOCUMENT_NAME: u16 = 269;
+pub const IMAGE_DESCRIPTION: u16 = 270;
+pub const MAKE: u16 = 271;
+pub const MODEL: u16 = 272;
+pub const STRIP_OFFSETS: u16 = 273;
+pub const ORIENTATION: u16 = 274;
+pub const SAMPLES_PER_PIXEL: u16 = 277;
+pub const ROWS_PER_STRIP: u16 = 278;
+pub const STRIP_BYTE_COUNTS: u16 = 279;
+pub const X_RESOLUTION: u16 = 282;
+pub const Y_RESOLUTION: u16 = 283;
+pub const PLANAR_CONFIGURATION: u16 = 284;
+pub const RESOLUTION_UNIT: u16 = 296;
+pub const SOFTWARE: u16 = 305;
+pub const DATE_TIME: u16 = 306;
+pub const ARTIST: u16 = 315;
+pub const PREDICTOR: u16 = 317;
+pub const TILE_WIDTH: u16 = 322;
+pub const TILE_LENGTH: u16 = 323;
+pub const TILE_OFFSETS: u16 = 324;
+pub const TILE_BYTE_COUNTS: u16 = 325;
+pub const SUB_IFDS: u16 = 330;
+pub const EXTRA_SAMPLES: u16 = 338;
+pub const SAMPLE_FORMAT: u16 = 339;
+pub const JPEG_INTERCHANGE_FORMAT: u16 = 513;
+pub const JPEG_INTERCHANGE_FORMAT_LENGTH: u16 = 514;
+pub const YCBCR_SUBSAMPLING: u16 = 530;
+pub const XMP: u16 = 700;
+pub const RATING: u16 = 18246;
+pub const RATING_PERCENT: u16 = 18249;
+pub const CFA_REPEAT_PATTERN_DIM: u16 = 33421;
+pub const CFA_PATTERN_EP: u16 = 33422;
+pub const COPYRIGHT: u16 = 33432;
+pub const EXPOSURE_TIME_EP: u16 = 33434;
+pub const IPTC_NAA: u16 = 33723;
+pub const EXIF_IFD: u16 = 34665;
+pub const ICC_PROFILE: u16 = 34675;
+pub const GPS_IFD: u16 = 34853;
+pub const INTEROP_IFD: u16 = 40965;
+
+// --- Exif private IFD
+pub const EXPOSURE_TIME: u16 = 33434;
+pub const F_NUMBER: u16 = 33437;
+pub const EXPOSURE_PROGRAM: u16 = 34850;
+pub const ISO_SPEED: u16 = 34855;
+pub const SENSITIVITY_TYPE: u16 = 34864;
+pub const RECOMMENDED_EXPOSURE_INDEX: u16 = 34866;
+pub const ISO_SPEED_RATINGS_EXT: u16 = 34867;
+pub const EXIF_VERSION: u16 = 36864;
+pub const DATE_TIME_ORIGINAL: u16 = 36867;
+pub const DATE_TIME_DIGITIZED: u16 = 36868;
+pub const OFFSET_TIME: u16 = 36880;
+pub const OFFSET_TIME_ORIGINAL: u16 = 36881;
+pub const OFFSET_TIME_DIGITIZED: u16 = 36882;
+pub const SHUTTER_SPEED_VALUE: u16 = 37377;
+pub const APERTURE_VALUE: u16 = 37378;
+pub const EXPOSURE_BIAS: u16 = 37380;
+pub const MAX_APERTURE: u16 = 37381;
+pub const METERING_MODE: u16 = 37383;
+pub const LIGHT_SOURCE: u16 = 37384;
+pub const FLASH: u16 = 37385;
+pub const FOCAL_LENGTH: u16 = 37386;
+pub const MAKER_NOTE: u16 = 37500;
+pub const USER_COMMENT: u16 = 37510;
+pub const SUBSEC_TIME: u16 = 37520;
+pub const SUBSEC_TIME_ORIGINAL: u16 = 37521;
+pub const SUBSEC_TIME_DIGITIZED: u16 = 37522;
+pub const PIXEL_X_DIMENSION: u16 = 40962;
+pub const PIXEL_Y_DIMENSION: u16 = 40963;
+pub const FOCAL_PLANE_X_RESOLUTION: u16 = 41486;
+pub const EXPOSURE_MODE: u16 = 41986;
+pub const WHITE_BALANCE: u16 = 41987;
+pub const FOCAL_LENGTH_35MM: u16 = 41989;
+pub const SCENE_CAPTURE_TYPE: u16 = 41990;
+pub const BODY_SERIAL_NUMBER: u16 = 42033;
+pub const LENS_SPECIFICATION: u16 = 42034;
+pub const LENS_MAKE: u16 = 42035;
+pub const LENS_MODEL: u16 = 42036;
+pub const LENS_SERIAL_NUMBER: u16 = 42037;
+
+// --- GPS IFD
+pub const GPS_VERSION_ID: u16 = 0;
+pub const GPS_LATITUDE_REF: u16 = 1;
+pub const GPS_LATITUDE: u16 = 2;
+pub const GPS_LONGITUDE_REF: u16 = 3;
+pub const GPS_LONGITUDE: u16 = 4;
+pub const GPS_ALTITUDE_REF: u16 = 5;
+pub const GPS_ALTITUDE: u16 = 6;
+pub const GPS_TIME_STAMP: u16 = 7;
+pub const GPS_IMG_DIRECTION_REF: u16 = 16;
+pub const GPS_IMG_DIRECTION: u16 = 17;
+pub const GPS_DATE_STAMP: u16 = 29;
+
+// --- DNG
+pub const DNG_VERSION: u16 = 50706;
+pub const DNG_BACKWARD_VERSION: u16 = 50707;
+pub const UNIQUE_CAMERA_MODEL: u16 = 50708;
+pub const LOCALIZED_CAMERA_MODEL: u16 = 50709;
+pub const CFA_PLANE_COLOR: u16 = 50710;
+pub const CFA_LAYOUT: u16 = 50711;
+pub const LINEARIZATION_TABLE: u16 = 50712;
+pub const BLACK_LEVEL_REPEAT_DIM: u16 = 50713;
+pub const BLACK_LEVEL: u16 = 50714;
+pub const BLACK_LEVEL_DELTA_H: u16 = 50715;
+pub const BLACK_LEVEL_DELTA_V: u16 = 50716;
+pub const WHITE_LEVEL: u16 = 50717;
+pub const DEFAULT_SCALE: u16 = 50718;
+pub const DEFAULT_CROP_ORIGIN: u16 = 50719;
+pub const DEFAULT_CROP_SIZE: u16 = 50720;
+pub const COLOR_MATRIX_1: u16 = 50721;
+pub const COLOR_MATRIX_2: u16 = 50722;
+pub const CAMERA_CALIBRATION_1: u16 = 50723;
+pub const CAMERA_CALIBRATION_2: u16 = 50724;
+pub const REDUCTION_MATRIX_1: u16 = 50725;
+pub const REDUCTION_MATRIX_2: u16 = 50726;
+pub const ANALOG_BALANCE: u16 = 50727;
+pub const AS_SHOT_NEUTRAL: u16 = 50728;
+pub const AS_SHOT_WHITE_XY: u16 = 50729;
+pub const BASELINE_EXPOSURE: u16 = 50730;
+pub const BASELINE_NOISE: u16 = 50731;
+pub const BASELINE_SHARPNESS: u16 = 50732;
+pub const BAYER_GREEN_SPLIT: u16 = 50733;
+pub const LINEAR_RESPONSE_LIMIT: u16 = 50734;
+pub const CAMERA_SERIAL_NUMBER: u16 = 50735;
+pub const LENS_INFO: u16 = 50736;
+pub const CHROMA_BLUR_RADIUS: u16 = 50737;
+pub const ANTI_ALIAS_STRENGTH: u16 = 50738;
+pub const SHADOW_SCALE: u16 = 50739;
+pub const DNG_PRIVATE_DATA: u16 = 50740;
+pub const MAKER_NOTE_SAFETY: u16 = 50741;
+pub const CALIBRATION_ILLUMINANT_1: u16 = 50778;
+pub const CALIBRATION_ILLUMINANT_2: u16 = 50779;
+pub const BEST_QUALITY_SCALE: u16 = 50780;
+pub const RAW_DATA_UNIQUE_ID: u16 = 50781;
+pub const ORIGINAL_RAW_FILE_NAME: u16 = 50827;
+pub const ACTIVE_AREA: u16 = 50829;
+pub const MASKED_AREAS: u16 = 50830;
+pub const AS_SHOT_ICC_PROFILE: u16 = 50831;
+pub const COLORIMETRIC_REFERENCE: u16 = 50879;
+pub const CAMERA_CALIBRATION_SIGNATURE: u16 = 50931;
+pub const PROFILE_CALIBRATION_SIGNATURE: u16 = 50932;
+pub const AS_SHOT_PROFILE_NAME: u16 = 50934;
+pub const PROFILE_NAME: u16 = 50936;
+pub const PROFILE_HUE_SAT_MAP_DIMS: u16 = 50937;
+pub const PROFILE_HUE_SAT_MAP_DATA_1: u16 = 50938;
+pub const PROFILE_HUE_SAT_MAP_DATA_2: u16 = 50939;
+pub const PROFILE_TONE_CURVE: u16 = 50940;
+pub const PROFILE_EMBED_POLICY: u16 = 50941;
+pub const PROFILE_LOOK_TABLE_DIMS: u16 = 50981;
+pub const PROFILE_LOOK_TABLE_DATA: u16 = 50982;
+pub const PROFILE_HUE_SAT_MAP_ENCODING: u16 = 51107;
+pub const PROFILE_LOOK_TABLE_ENCODING: u16 = 51108;
+pub const BASELINE_EXPOSURE_OFFSET: u16 = 51109;
+pub const DEFAULT_BLACK_RENDER: u16 = 51110;
+pub const FORWARD_MATRIX_1: u16 = 50964;
+pub const FORWARD_MATRIX_2: u16 = 50965;
+pub const PREVIEW_COLOR_SPACE: u16 = 50970;
+pub const CURRENT_PREVIEW_DATE_TIME: u16 = 50971;
+pub const OPCODE_LIST_1: u16 = 51008;
+pub const OPCODE_LIST_2: u16 = 51009;
+pub const OPCODE_LIST_3: u16 = 51022;
+pub const NOISE_PROFILE: u16 = 51041;
+pub const DEFAULT_USER_CROP: u16 = 51125;
+pub const CALIBRATION_ILLUMINANT_3: u16 = 52529;
+pub const CAMERA_CALIBRATION_3: u16 = 52530;
+pub const COLOR_MATRIX_3: u16 = 52531;
+pub const FORWARD_MATRIX_3: u16 = 52532;
+pub const ILLUMINANT_DATA_1: u16 = 52533;
+pub const ILLUMINANT_DATA_2: u16 = 52534;
+pub const ILLUMINANT_DATA_3: u16 = 52535;
+
+// --- Compression codes (TIFF 6.0, DNG, and widely used registrations)
+pub mod compression {
+    pub const NONE: u16 = 1;
+    pub const LZW: u16 = 5;
+    pub const OLD_JPEG: u16 = 6;
+    pub const JPEG: u16 = 7;
+    pub const ADOBE_DEFLATE: u16 = 8;
+    pub const DEFLATE: u16 = 32946;
+    pub const PACKBITS: u16 = 32773;
+    /// DNG lossy JPEG (baseline DCT, 8-bit).
+    pub const LOSSY_JPEG: u16 = 34892;
+    pub const JPEG_XL: u16 = 52546;
+    /// Nikon NEF Huffman compression.
+    pub const NIKON: u16 = 34713;
+    /// Sony ARW compressed (the value used by ARW files).
+    pub const SONY_ARW: u16 = 32767;
+}
+
+// --- PhotometricInterpretation
+pub mod photometric {
+    pub const WHITE_IS_ZERO: u16 = 0;
+    pub const BLACK_IS_ZERO: u16 = 1;
+    pub const RGB: u16 = 2;
+    pub const YCBCR: u16 = 6;
+    pub const CFA: u16 = 32803;
+    pub const LINEAR_RAW: u16 = 34892;
+}

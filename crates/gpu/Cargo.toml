@@ -1,0 +1,27 @@
+[package]
+name = "lightcraft-gpu"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "LightCraft GPU develop pipeline: wgpu compute (WGSL) twin of the CPU pipeline, which stays the reference (L3)"
+
+[lints]
+workspace = true
+
+[dependencies]
+lightcraft-geom = { workspace = true }
+lightcraft-color = { workspace = true }
+lightcraft-raster = { workspace = true }
+lightcraft-develop = { workspace = true }
+lightcraft-pipeline = { workspace = true }
+log = { workspace = true }
+
+# Native only: Metal / Vulkan / DX12 through wgpu (pure Rust; the drivers are the system's).
+# The browser build keeps the CPU pipeline (WebGPU needs async device creation: see docs/gpu-pipeline.md).
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+wgpu = { workspace = true }
+pollster = { workspace = true }
+bytemuck = { workspace = true }
+
+[dev-dependencies]
+lightcraft-scenes = { workspace = true }
